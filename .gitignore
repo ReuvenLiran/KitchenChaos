@@ -1,0 +1,77 @@
+﻿
+# This is a .gitignore file for a Unity project
+
+# Unity generated
+/[Ll]ibrary/
+/[Ll]ogs/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
+
+# Visual Studio/Visual Studio Code generated files
+.vscode/
+*.sln
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.csproj
+*.pidb
+*.sln.DotSettings.user
+
+# Rider generated files
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled assembly output
+/Assembly-CSharp*.dll
+/Assembly-CSharp*.mdb
+
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# NuGet Packages
+/packages/
+
+# User-specific files
+*.userprefs
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Rider
+.idea/
+*.sln.iml
+
+# Rider
+.idea/
+*.sln.iml
+
+# Gradle
+.gradle/
+.gradle/
+
+.vs/
+mono_crash*.json
