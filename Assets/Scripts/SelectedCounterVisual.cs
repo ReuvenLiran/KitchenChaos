@@ -10,19 +10,19 @@ public class SelectedCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        //Player player = Player.GetInstanceField();
         Player.Instance.OnSelectedCounterChange += Player_OnSelectedCounterChange;
     }
 
     private void Player_OnSelectedCounterChange(object sender, Player.OnSelectedCounterChangeEventArgs e)
     {
-        Debug.Log("SHOW");
         if (clearCounter == e.selectedCounter)
         {
+            Debug.Log("SHOW");
             this.Show();
         }
         else
         {
+            Debug.Log("HIDE");
             this.Hide();
         }
     }
