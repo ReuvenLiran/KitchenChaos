@@ -11,19 +11,19 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public virtual void Interact(Player player)
     {
-        if (kitchenObject == null)
-        {
-            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-            kitchenObjectTransform.localPosition = Vector3.zero;
+        //if (kitchenObject == null)
+        //{
+        //    Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
+        //    kitchenObjectTransform.localPosition = Vector3.zero;
 
-            kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-            kitchenObject.SetKitchenObjectParent(this);
-        }
-        else
-        {
-            Debug.Log(kitchenObject.GetKitchenObjectParent());
-            kitchenObject.SetKitchenObjectParent(player);
-        }
+        //    kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
+        //    kitchenObject.SetKitchenObjectParent(this);
+        //}
+        //else
+        //{
+        //    Debug.Log(kitchenObject.GetKitchenObjectParent());
+        //    kitchenObject.SetKitchenObjectParent(player);
+        //}
     }
 
     public Transform GetKitchenObjectFollowTransform()

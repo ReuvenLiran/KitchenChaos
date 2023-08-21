@@ -17,12 +17,10 @@ public class SelectedCounterVisual : MonoBehaviour
     {
         if (baseCounter == e.selectedCounter)
         {
-            Debug.Log("SHOW");
             this.Show();
         }
         else
         {
-            Debug.Log("HIDE");
             this.Hide();
         }
     }
