@@ -6,6 +6,15 @@ using System;
 public class CuttingCounter : BaseCounter
 {
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
+    private float cuttingProgress;
+
+    public event EventHandler<OnProgressChangedArgs> OnProgressChanged;
+    public class OnProgressChangedArgs : EventArgs
+    {
+        public float progressNormalized;
+    }
+
+    public event EventHandler OnCut;
 
     public override void Interact(Player player)
     {
@@ -21,6 +30,7 @@ public class CuttingCounter : BaseCounter
                 if (hasRecipe)
                 {
                     kitchenObjectToIntrect.SetKitchenObjectParent(this);
+                    ClearProgress();
                 }
             }
         }
@@ -30,6 +40,7 @@ public class CuttingCounter : BaseCounter
             {
                 kitchenObjectToIntrect = this.GetKitchenObject();
                 kitchenObjectToIntrect.SetKitchenObjectParent(player);
+                ClearProgress();
             }
         }
     }
@@ -43,7 +54,12 @@ public class CuttingCounter : BaseCounter
             kitchenObjectToIntrect = GetKitchenObject();
             CuttingRecipeSO cuttingRecipeSO = FindRecipe(kitchenObjectToIntrect);
 
-            if (cuttingRecipeSO != null)
+            cuttingProgress++;
+            SendProgress(cuttingProgress / cuttingRecipeSO.cuttingProgressMax);
+
+            OnCut?.Invoke(this, EventArgs.Empty);
+
+            if (cuttingRecipeSO != null && cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
             {
                 kitchenObjectToIntrect.DestroySelft();
                 KitchenObject.Spawn(cuttingRecipeSO.output, this);
@@ -57,5 +73,19 @@ public class CuttingCounter : BaseCounter
 
         CuttingRecipeSO cuttingRecipeSO = Array.Find(cuttingRecipeSOArray, recipe => kitchenObjectSO == recipe.input);
         return cuttingRecipeSO;
+    }
+
+    private void SendProgress(float precent)
+    {
+        OnProgressChanged?.Invoke(this, new OnProgressChangedArgs
+        {
+            progressNormalized = precent
+        });
+    }
+
+    private void ClearProgress()
+    {
+        cuttingProgress = 0;
+        SendProgress(0);
     }
 }
