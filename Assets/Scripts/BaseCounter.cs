@@ -4,26 +4,16 @@ using UnityEngine;
 
 public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 {
-    [SerializeField] protected KitchenObjectSO kitchenObjectSO;
     [SerializeField] protected Transform counterTopPoint;
 
-    protected KitchenObject kitchenObject;
+    private KitchenObject kitchenObject;
 
     public virtual void Interact(Player player)
     {
-        //if (kitchenObject == null)
-        //{
-        //    Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
-        //    kitchenObjectTransform.localPosition = Vector3.zero;
+        Debug.Log("interact");
+    }
 
-        //    kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-        //    kitchenObject.SetKitchenObjectParent(this);
-        //}
-        //else
-        //{
-        //    Debug.Log(kitchenObject.GetKitchenObjectParent());
-        //    kitchenObject.SetKitchenObjectParent(player);
-        //}
+    public virtual void InteractAlternate(Player player) {
     }
 
     public Transform GetKitchenObjectFollowTransform()
